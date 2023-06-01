@@ -1,11 +1,8 @@
 package strategy
 
 import (
-	"bytes"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
-	"net/http"
 
 	"github.com/ThailanTec/factoriesStrategy/model"
 )
@@ -36,38 +33,7 @@ func (sql *CreateSQL) Create(con model.CreateDB) {
 	}
 
 	// Chamada do Airbyte
-	mash := inputB
-	sqlMarshal, err := json.Marshal(mash)
-	if err != nil {
-		return
-	}
-
-	url := model.Url
-	req, err := http.NewRequest("POST", url, bytes.NewBuffer(sqlMarshal))
-	if err != nil {
-		fmt.Println(err.Error())
-	}
-
-	req.Header.Add("Content-Type", "application/json")
-	req.Header.Add("Authorization", model.Authorization)
-
-	client := &http.Client{}
-	resp, err := client.Do(req)
-	if err != nil {
-		return
-	}
-
-	defer resp.Body.Close()
-
-	_, err = ioutil.ReadAll(resp.Body)
-
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	if resp.StatusCode != http.StatusCreated {
-		fmt.Sprintf("failed to create SQL Server source. Status code: %d", resp.StatusCode)
-	}
+	NewHttpRequest(inputB)
 
 	// Validação
 	valida := valideData(dataInput, con)
