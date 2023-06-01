@@ -40,7 +40,7 @@ Para auxiliar no desenvolvimento e na solução do problema de criação do banc
 *<b>Itens a serem instalados: </b>*
 
 * [Docker]( https://docs.docker.com/engine/install/ubuntu/)
-* [Golang](https://go.dev/doc/install)
+* [Golang](https://go.dev/doc/install) (Docker é opcional)
 * [Airbyte](https://airbyte.com/) (Caso deseje rodar a aplicação no seu local)
 
 
