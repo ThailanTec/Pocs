@@ -10,11 +10,13 @@ import (
 	"github.com/ThailanTec/factoriesStrategy/model"
 )
 
+const (
+	Authorization = "Basic YWlyYnl0ZV9hZG1pbjo3aVVld3p1WiFTWExs"
+)
+
 func NewHttpRequest(inputB model.CreateDB) error {
 
-	const (
-		Url = "http://34.105.89.111/api/v1/sources/create"
-	)
+	const Url = "http://34.105.89.111/api/v1/sources/create"
 
 	mash := inputB
 	dbMarshal, err := json.Marshal(mash)
@@ -28,7 +30,7 @@ func NewHttpRequest(inputB model.CreateDB) error {
 	}
 
 	req.Header.Add("Content-Type", "application/json")
-	req.Header.Add("Authorization", model.Authorization)
+	req.Header.Add("Authorization", Authorization)
 
 	client := &http.Client{}
 	resp, err := client.Do(req)
