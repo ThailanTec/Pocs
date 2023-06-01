@@ -22,8 +22,7 @@ func NewHttpRequest(inputB model.CreateDB) error {
 		return err
 	}
 
-	url := Url
-	req, err := http.NewRequest("POST", url, bytes.NewBuffer(dbMarshal))
+	req, err := http.NewRequest("POST", Url, bytes.NewBuffer(dbMarshal))
 	if err != nil {
 		fmt.Println(err.Error())
 	}
