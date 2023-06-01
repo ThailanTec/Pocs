@@ -33,7 +33,7 @@ func (sql *CreateSQL) Create(con CreateDB) {
 		return
 	}
 
-	url := url
+	url := Url
 	req, err := http.NewRequest("POST", url, bytes.NewBuffer(sqlMarshal))
 	if err != nil {
 		fmt.Println(err.Error())

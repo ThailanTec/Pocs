@@ -34,14 +34,14 @@ func (ps *CreatePostgres) Create(con CreateDB) {
 		return
 	}
 
-	url := "http://34.105.89.111/api/v1/sources/create"
+	url := Url
 	req, err := http.NewRequest("POST", url, bytes.NewBuffer(sqlMarshal))
 	if err != nil {
 		fmt.Println(err.Error())
 	}
 
 	req.Header.Add("Content-Type", "application/json")
-	req.Header.Add("Authorization", "Basic YWlyYnl0ZV9hZG1pbjo3aVVld3p1WiFTWExs")
+	req.Header.Add("Authorization", Authorization)
 
 	client := &http.Client{}
 	resp, err := client.Do(req)
