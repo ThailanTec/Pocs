@@ -5,8 +5,7 @@ type DBProvider interface {
 }
 
 type CreateDB struct {
-	SourceDefinitionID      string                 `json:"sourceDefinitionId"`
-	SourceID                string                 `json:"sourceId"`
+	SourceDefinitionID      string                 `json:"sourceDefinitionId"` // Editar para que o back já sete automaticamente
 	WorkspaceID             string                 `json:"workspaceId"`
 	ConnectionConfiguration map[string]interface{} `json:"connectionConfiguration"`
 	Name                    string                 `json:"name"`

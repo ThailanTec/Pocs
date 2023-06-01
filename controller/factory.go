@@ -5,9 +5,9 @@ import (
 	"github.com/ThailanTec/factoriesStrategy/strategy"
 )
 
-func NewDataBaseProviderF(dbtype string) model.DBProvider {
+func NewDataBaseProviderF(format string) model.DBProvider {
 
-	switch dbtype {
+	switch format {
 	case "mssql":
 		return &strategy.CreateSQL{}
 	case "postgres":
