@@ -39,8 +39,7 @@ Para auxiliar no desenvolvimento e na solução do problema de criação do banc
 
 *<b>Itens a serem instalados: </b>*
 
-* [Docker]( https://docs.docker.com/engine/install/ubuntu/)
-* [Golang](https://go.dev/doc/install) (Docker é opcional)
+* [Golang](https://go.dev/doc/install)
 * [Airbyte](https://airbyte.com/) (Caso deseje rodar a aplicação no seu local)
 
 
@@ -206,3 +205,19 @@ Na pasta "collections", contida aqui na estrutura, temos a collection para ser u
 
 - {PWD_LOCAL} = Contem a senha para acessar a produção.
 - {USER_LOCAL} = Contem o usuario para acessar a produção.
+
+## Informações importantes
+
+* Para editar o *endpoint* e a *Authorization* que deseja fazer os teste da aplicação. Fica em:
+
+interfaces > const > [Linha 17 até 21]
+
+* Para editar a porta que o servidor vai rodar na maquina:
+
+main > router [Linha 13] Alterar a primeira opção dentro das strings
+
+```go 
+
+	http.ListenAndServe(":8080", router)
+    
+```
