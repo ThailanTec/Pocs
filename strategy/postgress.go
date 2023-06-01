@@ -10,18 +10,16 @@ import (
 type CreatePostgres struct {
 }
 
-func (ps *CreatePostgres) Create(con model.CreateDB) {
-	inputB := con
+func (ps *CreatePostgres) Create(dto model.DbDtoRequest) {
 
-	const NewSourceDefinitionId = "decd338e-5647-4c0b-adf4-da0e75f5a750"
+	const SourceDefinitionId = "decd338e-5647-4c0b-adf4-da0e75f5a750"
 
-	dataF := inputB.ConnectionConfiguration
+	dataF := dto.ConnectionConfiguration
 	dMashal, err := json.Marshal(dataF)
 	if err != nil {
 		fmt.Println("Não foi possivel realizar o Marshal.")
 		return
 	}
-	con.SourceDefinitionID = NewSourceDefinitionId
 
 	dataInput := make(map[string]interface{})
 	err = json.Unmarshal([]byte(dMashal), &dataInput)
@@ -30,25 +28,24 @@ func (ps *CreatePostgres) Create(con model.CreateDB) {
 		return
 	}
 
-	// Chamada do Airbyte
-	result := NewHttpRequest(inputB)
-	if result != nil {
-		return
-	}
-
 	// Validação
-	valida := valideDataP(dataInput, con)
+	valida := valideDataP(dataInput, dto)
 	if valida {
 		fmt.Printf("Create database type: ")
-		fmt.Println(con.Format)
+		fmt.Printf(dto.Format)
 	} else {
 		fmt.Println("Error:", err)
 		return
 	}
 
+	createDb := model.DtoMapp(dto, SourceDefinitionId)
+
+	// Chamada do Airbyte
+	NewHttpRequest(*createDb)
+
 }
 
-func valideDataP(input map[string]interface{}, con model.CreateDB) bool {
+func valideDataP(input map[string]interface{}, con model.DbDtoRequest) bool {
 
 	conn := con.ConnectionConfiguration
 

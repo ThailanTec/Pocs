@@ -9,7 +9,7 @@ import (
 type CreateOracle struct {
 }
 
-func (ps *CreateOracle) Create(con model.CreateDB) {
+func (ps *CreateOracle) Create(con model.DtoAirbyteCreateDB) {
 
 	fmt.Printf("Create database type: ")
 	fmt.Print(con.Format)

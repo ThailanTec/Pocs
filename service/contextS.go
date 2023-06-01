@@ -1,6 +1,8 @@
-package controller
+package service
 
-import "github.com/ThailanTec/factoriesStrategy/model"
+import (
+	"github.com/ThailanTec/factoriesStrategy/model"
+)
 
 type CreateDBStrategy struct {
 	CreateDataBase model.DBProvider
@@ -16,7 +18,6 @@ func (c *CreateDBStrategy) SetCreated(dbCreate model.DBProvider) {
 	c.CreateDataBase = dbCreate
 }
 
-// Refact: Vamos utilizar maps
-func (d *CreateDBStrategy) CreateDataB(con model.CreateDB) {
-	d.CreateDataBase.Create(con)
+func (d *CreateDBStrategy) CreateDataB(dto model.DbDtoRequest) {
+	d.CreateDataBase.Create(dto)
 }

@@ -14,12 +14,11 @@ const (
 	Authorization = "Basic YWlyYnl0ZV9hZG1pbjo3aVVld3p1WiFTWExs"
 )
 
-func NewHttpRequest(inputB model.CreateDB) error {
+func NewHttpRequest(inputB model.DtoAirbyteCreateDB) error {
 
 	const Url = "http://34.105.89.111/api/v1/sources/create"
 
-	mash := inputB
-	dbMarshal, err := json.Marshal(mash)
+	dbMarshal, err := json.Marshal(inputB)
 	if err != nil {
 		return err
 	}
@@ -28,7 +27,6 @@ func NewHttpRequest(inputB model.CreateDB) error {
 	if err != nil {
 		fmt.Println(err.Error())
 	}
-
 	req.Header.Add("Content-Type", "application/json")
 	req.Header.Add("Authorization", Authorization)
 
@@ -49,5 +47,6 @@ func NewHttpRequest(inputB model.CreateDB) error {
 	if resp.StatusCode != http.StatusCreated {
 		fmt.Sprintf("failed to create SQL Server source. Status code: %d", resp.StatusCode)
 	}
+
 	return nil
 }

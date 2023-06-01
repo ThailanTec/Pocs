@@ -9,21 +9,16 @@ import (
 
 type CreateSQL struct{}
 
-const ()
+func (sql *CreateSQL) Create(dto model.DbDtoRequest) {
 
-func (sql *CreateSQL) Create(con model.CreateDB) {
+	const SourceDefinitionId = "b5ea17b1-f170-46dc-bc31-cc744ca984c1"
 
-	inputB := con
-
-	const NewSourceDefinitionId = "b5ea17b1-f170-46dc-bc31-cc744ca984c1"
-
-	dataF := inputB.ConnectionConfiguration
+	dataF := dto.ConnectionConfiguration
 	dMashal, err := json.Marshal(dataF)
 	if err != nil {
 		fmt.Println("Não foi possivel realizar o Marshal.")
 		return
 	}
-	con.SourceDefinitionID = NewSourceDefinitionId
 
 	dataInput := make(map[string]interface{})
 	err = json.Unmarshal([]byte(dMashal), &dataInput)
@@ -32,22 +27,24 @@ func (sql *CreateSQL) Create(con model.CreateDB) {
 		return
 	}
 
-	// Chamada do Airbyte
-	NewHttpRequest(inputB)
-
 	// Validação
-	valida := valideData(dataInput, con)
+	valida := valideData(dataInput, dto)
 	if valida {
 		fmt.Printf("Create database type: ")
-		fmt.Println(con.Format)
+		fmt.Printf(dto.Format)
 	} else {
 		fmt.Println("Error:", err)
 		return
 	}
 
+	createDb := model.DtoMapp(dto, SourceDefinitionId)
+
+	// Chamada do Airbyte
+	NewHttpRequest(*createDb)
+
 }
 
-func valideData(input map[string]interface{}, con model.CreateDB) bool {
+func valideData(input map[string]interface{}, con model.DbDtoRequest) bool {
 
 	conn := con.ConnectionConfiguration
 
