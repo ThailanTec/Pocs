@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"sourceDefinitionId\":\"b5ea17b1-f170-46dc-bc31-cc744ca984c1\",\n   \"sourceId\":\"33e2f50d-fdfd-4a5b-9bb4-32350c0f9cc6\",\n   \"workspaceId\":\"c2e9e9ae-1289-4016-8220-a6ddc3f8d225\",\n    \"connectionConfiguration\": {\n        \"dataset_name\": \"\",\n        \"host\": \"enge-sql-server.database.windows.net\",\n        \"schemas\": [\n            \"dto\"\n        ],\n         \"sourceType\":\"mssql\",\n        \"port\": 1433,\n        \"database\": \"mySampleDatabase\",\n        \"username\": \"azureuser\",\n        \"sslMode\": \"disable\",\n        \"password\": \"Pwd@1234\",\n        \"replicationMethod\": \"true\"\n    },\n   \n    \"name\": \"SQLEMO\",\n    \"sourceName\": \"SQLEMO\",\n    \"icon\": \"icon\",\n    \"format\":\"mssql\"\n}",
+					"raw": "{\n    \"sourceDefinitionId\": \"decd338e-5647-4c0b-adf4-da0e75f5a750\",\n    \"sourceId\": \"79b7782b-a3d4-4814-bb41-743146d493cb\",\n    \"workspaceId\": \"c2e9e9ae-1289-4016-8220-a6ddc3f8d225\",\n    \"connectionConfiguration\": {\n        \"dataset_name\": \"\",\n        \"host\": \"35.227.17.122\",\n        \"port\": 5432,\n        \"database\": \"data-dev\",\n        \"username\": \"dhuodata\",\n        \"sslMode\": \"disable\",\n        \"schemas\": [\n            \"landing_zone\"\n        ],\n        \"password\": \"LBP5Xt0QpR5&43!N6z3pc\",\n        \"replicationMethod\": \"true\"\n    },\n    \"sourceType\": \"postgres\",\n    \"name\": \"Thing\",\n    \"sourceName\": \"Serve\",\n    \"icon\": \"icon\",\n    \"format\": \"postgres\"\n} ",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -32,7 +32,100 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "CreateSQL",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sourceDefinitionId\":\"b5ea17b1-f170-46dc-bc31-cc744ca984c1\",\n   \"sourceId\":\"33e2f50d-fdfd-4a5b-9bb4-32350c0f9cc6\",\n   \"workspaceId\":\"c2e9e9ae-1289-4016-8220-a6ddc3f8d225\",\n    \"connectionConfiguration\": {\n        \"dataset_name\": \"\",\n        \"host\": \"enge-sql-server.database.windows.net\",\n        \"schemas\": [\n            \"dto\"\n        ],\n         \"sourceType\":\"mssql\",\n        \"port\": 1433,\n        \"database\": \"mySampleDatabase\",\n        \"username\": \"azureuser\",\n        \"sslMode\": \"disable\",\n        \"password\": \"Pwd@1234\",\n        \"replicationMethod\": \"true\"\n    },\n   \n    \"name\": \"SQLEMO\",\n    \"sourceName\": \"SQLEMO\",\n    \"icon\": \"icon\",\n    \"format\":\"mssql\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/pocs/connection",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pocs",
+								"connection"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 01 Jun 2023 16:29:43 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "484"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"sourceDefinitionId\": \"b5ea17b1-f170-46dc-bc31-cc744ca984c1\",\n    \"sourceId\": \"33e2f50d-fdfd-4a5b-9bb4-32350c0f9cc6\",\n    \"workspaceId\": \"c2e9e9ae-1289-4016-8220-a6ddc3f8d225\",\n    \"connectionConfiguration\": {\n        \"database\": \"mySampleDatabase\",\n        \"dataset_name\": \"\",\n        \"host\": \"enge-sql-server.database.windows.net\",\n        \"password\": \"Pwd@1234\",\n        \"port\": 1433,\n        \"replicationMethod\": \"true\",\n        \"schemas\": [\n            \"dto\"\n        ],\n        \"sourceType\": \"mssql\",\n        \"sslMode\": \"disable\",\n        \"username\": \"azureuser\"\n    },\n    \"name\": \"SQLEMO\",\n    \"sourceName\": \"SQLEMO\",\n    \"format\": \"mssql\"\n}"
+				},
+				{
+					"name": "CreatePostgress",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sourceDefinitionId\": \"decd338e-5647-4c0b-adf4-da0e75f5a750\",\n    \"sourceId\": \"79b7782b-a3d4-4814-bb41-743146d493cb\",\n    \"workspaceId\": \"c2e9e9ae-1289-4016-8220-a6ddc3f8d225\",\n    \"connectionConfiguration\": {\n        \"dataset_name\": \"\",\n        \"host\": \"35.227.17.122\",\n        \"port\": 5432,\n        \"database\": \"data-dev\",\n        \"username\": \"dhuodata\",\n        \"sslMode\": \"disable\",\n        \"schemas\": [\n            \"landing_zone\"\n        ],\n        \"password\": \"LBP5Xt0QpR5&43!N6z3pc\",\n        \"replicationMethod\": \"true\"\n    },\n    \"sourceType\": \"postgres\",\n    \"name\": \"Thing\",\n    \"sourceName\": \"Serve\",\n    \"icon\": \"icon\",\n    \"format\": \"postgres\"\n} ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/pocs/connection",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pocs",
+								"connection"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 01 Jun 2023 16:44:39 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "459"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"sourceDefinitionId\": \"decd338e-5647-4c0b-adf4-da0e75f5a750\",\n    \"sourceId\": \"79b7782b-a3d4-4814-bb41-743146d493cb\",\n    \"workspaceId\": \"c2e9e9ae-1289-4016-8220-a6ddc3f8d225\",\n    \"connectionConfiguration\": {\n        \"database\": \"data-dev\",\n        \"dataset_name\": \"\",\n        \"host\": \"35.227.17.122\",\n        \"password\": \"LBP5Xt0QpR5&43!N6z3pc\",\n        \"port\": 5432,\n        \"replicationMethod\": \"true\",\n        \"schemas\": [\n            \"landing_zone\"\n        ],\n        \"sslMode\": \"disable\",\n        \"username\": \"dhuodata\"\n    },\n    \"name\": \"Thing\",\n    \"sourceName\": \"Serve\",\n    \"format\": \"postgres\"\n}"
+				}
+			]
 		}
 	]
 }
