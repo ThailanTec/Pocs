@@ -3,6 +3,8 @@ package main
 import (
 	"net/http"
 
+	"github.com/ThailanTec/factoriesStrategy/controller"
+	"github.com/ThailanTec/factoriesStrategy/model"
 	"github.com/gin-gonic/gin"
 )
 
@@ -16,7 +18,7 @@ func main() {
 
 func Connection(c *gin.Context) {
 
-	data := CreateDB{}
+	data := model.CreateDB{}
 	err := c.ShouldBindJSON(&data)
 	if err != nil {
 		c.JSON(400, gin.H{
@@ -24,8 +26,7 @@ func Connection(c *gin.Context) {
 		})
 		return
 	}
-
-	criacao := NewDataBase(NewDataBaseProviderF(data.Format))
+	criacao := controller.NewDataBase(controller.NewDataBaseProviderF(data.Format))
 	criacao.CreateDataB(data)
 
 	c.JSON(http.StatusCreated, data)

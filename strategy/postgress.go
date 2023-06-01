@@ -1,4 +1,4 @@
-package main
+package strategy
 
 import (
 	"bytes"
@@ -6,12 +6,14 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+
+	"github.com/ThailanTec/factoriesStrategy/model"
 )
 
 type CreatePostgres struct {
 }
 
-func (ps *CreatePostgres) Create(con CreateDB) {
+func (ps *CreatePostgres) Create(con model.CreateDB) {
 	inputB := con
 
 	dataF := inputB.ConnectionConfiguration
@@ -34,14 +36,14 @@ func (ps *CreatePostgres) Create(con CreateDB) {
 		return
 	}
 
-	url := Url
+	url := model.Url
 	req, err := http.NewRequest("POST", url, bytes.NewBuffer(sqlMarshal))
 	if err != nil {
 		fmt.Println(err.Error())
 	}
 
 	req.Header.Add("Content-Type", "application/json")
-	req.Header.Add("Authorization", Authorization)
+	req.Header.Add("Authorization", model.Authorization)
 
 	client := &http.Client{}
 	resp, err := client.Do(req)
@@ -74,7 +76,7 @@ func (ps *CreatePostgres) Create(con CreateDB) {
 
 }
 
-func valideDataP(input map[string]interface{}, con CreateDB) bool {
+func valideDataP(input map[string]interface{}, con model.CreateDB) bool {
 
 	conn := con.ConnectionConfiguration
 
