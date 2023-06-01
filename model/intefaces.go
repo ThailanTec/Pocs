@@ -12,3 +12,5 @@ type CreateDB struct {
 	SourceName              string                 `json:"sourceName"`
 	Format                  string                 `json:"format"`
 }
+
+const Authorization = "Basic YWlyYnl0ZV9hZG1pbjo3aVVld3p1WiFTWExs"

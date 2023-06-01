@@ -13,8 +13,7 @@ import (
 func NewHttpRequest(inputB model.CreateDB) error {
 
 	const (
-		Url           = "http://34.105.89.111/api/v1/sources/create"
-		Authorization = "Basic YWlyYnl0ZV9hZG1pbjo3aVVld3p1WiFTWExs"
+		Url = "http://34.105.89.111/api/v1/sources/create"
 	)
 
 	mash := inputB
@@ -30,7 +29,7 @@ func NewHttpRequest(inputB model.CreateDB) error {
 	}
 
 	req.Header.Add("Content-Type", "application/json")
-	req.Header.Add("Authorization", Authorization)
+	req.Header.Add("Authorization", model.Authorization)
 
 	client := &http.Client{}
 	resp, err := client.Do(req)
