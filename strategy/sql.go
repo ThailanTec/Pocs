@@ -12,8 +12,13 @@ import (
 
 type CreateSQL struct{}
 
+const ()
+
 func (sql *CreateSQL) Create(con model.CreateDB) {
+
 	inputB := con
+
+	const NEWsourceDefinitionId = "b5ea17b1-f170-46dc-bc31-cc744ca984c1"
 
 	dataF := inputB.ConnectionConfiguration
 	dMashal, err := json.Marshal(dataF)
@@ -21,6 +26,8 @@ func (sql *CreateSQL) Create(con model.CreateDB) {
 		fmt.Println("Não foi possivel realizar o Marshal.")
 		return
 	}
+	con.SourceDefinitionID = NEWsourceDefinitionId
+
 	dataInput := make(map[string]interface{})
 	err = json.Unmarshal([]byte(dMashal), &dataInput)
 	if err != nil {

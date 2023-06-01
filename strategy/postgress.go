@@ -16,12 +16,16 @@ type CreatePostgres struct {
 func (ps *CreatePostgres) Create(con model.CreateDB) {
 	inputB := con
 
+	const NEWsourceDefinitionId = "decd338e-5647-4c0b-adf4-da0e75f5a750"
+
 	dataF := inputB.ConnectionConfiguration
 	dMashal, err := json.Marshal(dataF)
 	if err != nil {
 		fmt.Println("Não foi possivel realizar o Marshal.")
 		return
 	}
+	con.SourceDefinitionID = NEWsourceDefinitionId
+
 	dataInput := make(map[string]interface{})
 	err = json.Unmarshal([]byte(dMashal), &dataInput)
 	if err != nil {
