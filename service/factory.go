@@ -12,9 +12,9 @@ func NewDataBaseProviderF(format string) model.DBProvider {
 		return &strategy.CreateSQL{}
 	case "postgres":
 		return &strategy.CreatePostgres{}
-	/* case "oracle":
-	return &strategy.CreateOracle{}
-	*/
+	case "oracle":
+		return &strategy.CreateOracle{}
+
 	default:
 		return nil
 	}

@@ -40,7 +40,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"sourceDefinitionId\":\"b5ea17b1-f170-46dc-bc31-cc744ca984c1\",\n   \"sourceId\":\"33e2f50d-fdfd-4a5b-9bb4-32350c0f9cc6\",\n   \"workspaceId\":\"c2e9e9ae-1289-4016-8220-a6ddc3f8d225\",\n    \"connectionConfiguration\": {\n        \"dataset_name\": \"\",\n        \"host\": \"enge-sql-server.database.windows.net\",\n        \"schemas\": [\n            \"dto\"\n        ],\n         \"sourceType\":\"mssql\",\n        \"port\": 1433,\n        \"database\": \"mySampleDatabase\",\n        \"username\": \"azureuser\",\n        \"sslMode\": \"disable\",\n        \"password\": \"Pwd@1234\",\n        \"replicationMethod\": \"true\"\n    },\n   \n    \"name\": \"SQLEMO\",\n    \"sourceName\": \"SQLEMO\",\n    \"icon\": \"icon\",\n    \"format\":\"mssql\"\n}",
+							"raw": "{\n    \"sourceDefinitionId\": \"b5ea17b1-f170-46dc-bc31-cc744ca984c1\",\n    \"workspaceId\": \"c2e9e9ae-1289-4016-8220-a6ddc3f8d225\",\n    \"connectionConfiguration\": {\n        \"dataset_name\": \"\",\n        \"host\": \"enge-sql-server.database.windows.net\",\n        \"schemas\": [\n            \"dto\"\n        ],\n        \"sourceType\": \"mssql\",\n        \"port\": 1433,\n        \"database\": \"mySampleDatabase\",\n        \"isReplicationConnection\": true,\n        \"username\": \"azureuser\",\n        \"sslMode\": \"encrypted_trust_server_certificate\",\n        \"password\": \"Pwd@1234\",\n        \"replicationMethod\": \"STANDARD\"\n    },\n    \"name\": \"SQLEMO\",\n    \"sourceName\": \"SQLEMO\",\n    \"icon\": \"icon\",\n    \"format\": \"mssql\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -77,7 +77,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"sourceDefinitionId\": \"b5ea17b1-f170-46dc-bc31-cc744ca984c1\",\n    \"sourceId\": \"33e2f50d-fdfd-4a5b-9bb4-32350c0f9cc6\",\n    \"workspaceId\": \"c2e9e9ae-1289-4016-8220-a6ddc3f8d225\",\n    \"connectionConfiguration\": {\n        \"database\": \"mySampleDatabase\",\n        \"dataset_name\": \"\",\n        \"host\": \"enge-sql-server.database.windows.net\",\n        \"password\": \"Pwd@1234\",\n        \"port\": 1433,\n        \"replicationMethod\": \"true\",\n        \"schemas\": [\n            \"dto\"\n        ],\n        \"sourceType\": \"mssql\",\n        \"sslMode\": \"disable\",\n        \"username\": \"azureuser\"\n    },\n    \"name\": \"SQLEMO\",\n    \"sourceName\": \"SQLEMO\",\n    \"format\": \"mssql\"\n}"
+					"body": "{\n    \"sourceDefinitionId\": \"b5ea17b1-f170-46dc-bc31-cc744ca984c1\",\n    \"sourceId\": \"33e2f50d-fdfd-4a5b-9bb4-32350c0f9cc6\",\n    \"workspaceId\": \"c2e9e9ae-1289-4016-8220-a6ddc3f8d225\",\n    \"connectionConfiguration\": {\n        \"database\": \"mySampleDatabase\",\n        \"dataset_name\": \"\",\n        \"host\": \"enge-sql-server.database.windows.net\",\n        \"password\": \"Pwd@1234\",\n        \"port\": 1433,\n        \"replicationMethod\": \"STANDARD\",\n        \"schemas\": [\n            \"dto\"\n        ],\n        \"isReplicationConnection\": true,\n        \"sourceType\": \"mssql\",\n        \"sslMode\": \"encrypted_trust_server_certificate\",\n        \"username\": \"azureuser\"\n    },\n    \"name\": \"SQLEMO\",\n    \"sourceName\": \"SQLEMO\",\n    \"format\": \"mssql\"\n}"
 				},
 				{
 					"name": "CreatePostgress",
