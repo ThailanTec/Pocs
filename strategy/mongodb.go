@@ -7,10 +7,10 @@ import (
 	"github.com/ThailanTec/factoriesStrategy/model"
 )
 
-type CreateOracle struct {
+type CreateMongoDB struct {
 }
 
-func (sql *CreateOracle) Create(dto model.DbDtoRequest) {
+func (sql *CreateMongoDB) Create(dto model.DbDtoRequest) {
 
 	const SourceDefinitionId = "b39a7370-74c3-45a6-ac3a-380d48520a83"
 
@@ -29,7 +29,7 @@ func (sql *CreateOracle) Create(dto model.DbDtoRequest) {
 	}
 
 	// Validação
-	valida := valideDataO(dataInput, dto)
+	valida := valideDataM(dataInput, dto)
 	if valida {
 		fmt.Printf("Create database type: ")
 		fmt.Printf(dto.Format)
@@ -45,7 +45,7 @@ func (sql *CreateOracle) Create(dto model.DbDtoRequest) {
 
 }
 
-func valideDataO(input map[string]interface{}, con model.DbDtoRequest) bool {
+func valideDataM(input map[string]interface{}, con model.DbDtoRequest) bool {
 
 	conn := con.ConnectionConfiguration
 

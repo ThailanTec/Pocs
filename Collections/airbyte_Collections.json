@@ -94,7 +94,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"sourceDefinitionId\": \"decd338e-5647-4c0b-adf4-da0e75f5a750\",\n    \"sourceId\": \"646eb6e9-860b-45f5-a042-dbefb488817f\",\n    \"workspaceId\": \"b2cceae1-84f2-4188-b160-ee393190c88d\",\n    \"connectionConfiguration\": {\n        \"dataset_name\": \"\",\n        \"host\": \"enge-sql-server.database.windows.net\",\n        \"schemas\": [\n            \"dto\"\n        ],\n        \"port\": 1433,\n        \"database\": \"mySampleDatabase\",\n        \"username\": \"azureuser\",\n        \"sslMode\": \"encrypted_trust_server_certificate\",\n        \"password\": \"Pwd@1234\",\n        \"isReplicationConnection\": true,\n        \"replicationMethod\": \"STANDARD\"\n    },\n    \"name\": \"SQLSERVER\",\n    \"sourceName\": \"SQLSERVER\",\n    \"icon\": \"icon\"\n}",
+							"raw": "{\n    \"sourceDefinitionId\": \"b5ea17b1-f170-46dc-bc31-cc744ca984c1\",\n    \"workspaceId\": \"c2e9e9ae-1289-4016-8220-a6ddc3f8d225\",\n    \"connectionConfiguration\": {\n        \"dataset_name\": \"\",\n        \"host\": \"enge-sql-server.database.windows.net\",\n        \"schemas\": [\n            \"dto\"\n        ],\n        \"port\": 1433,\n        \"database\": \"mySampleDatabase\",\n        \"username\": \"azureuser\",\n        \"sslMode\": \"encrypted_trust_server_certificate\",\n        \"password\": \"Pwd@1234\",\n        \"isReplicationConnection\": true,\n        \"replicationMethod\": \"STANDARD\"\n    },\n    \"name\": \"SQLSERVER\",\n    \"sourceName\": \"SQLSERVER\",\n    \"icon\": \"icon\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -102,9 +102,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{URL_LOCAL}}/api/v1/sources/create",
+							"raw": "{{URL_BASE}}/api/v1/sources/create",
 							"host": [
-								"{{URL_LOCAL}}"
+								"{{URL_BASE}}"
 							],
 							"path": [
 								"api",
