@@ -7,12 +7,11 @@ import (
 	"github.com/ThailanTec/factoriesStrategy/model"
 )
 
-type CreateMongoDB struct {
-}
+type CreateMysql struct{}
 
-func (sql *CreateMongoDB) Create(dto model.DbDtoRequest) {
+func (ps *CreateMysql) Create(dto model.DbDtoRequest) {
 
-	const SourceDefinitionId = "b39a7370-74c3-45a6-ac3a-380d48520a83"
+	const SourceDefinitionId = "435bb9a5-7887-4809-aa58-28c27df0d7ad"
 
 	dataF := dto.ConnectionConfiguration
 	dMashal, err := json.Marshal(dataF)
@@ -29,7 +28,7 @@ func (sql *CreateMongoDB) Create(dto model.DbDtoRequest) {
 	}
 
 	// Validação
-	valida := valideDataM(dataInput, dto)
+	valida := valideDataMY(dataInput, dto)
 	if valida {
 		fmt.Printf("Create database type: ")
 		fmt.Printf(dto.Format)
@@ -45,7 +44,7 @@ func (sql *CreateMongoDB) Create(dto model.DbDtoRequest) {
 
 }
 
-func valideDataM(input map[string]interface{}, con model.DbDtoRequest) bool {
+func valideDataMY(input map[string]interface{}, con model.DbDtoRequest) bool {
 
 	conn := con.ConnectionConfiguration
 
@@ -76,14 +75,6 @@ func valideDataM(input map[string]interface{}, con model.DbDtoRequest) bool {
 		return false
 	} else {
 		fmt.Println("ssl:", sslmode)
-	}
-
-	schemas, ok := dataInput["schemas"]
-	if !ok {
-		fmt.Println("schemas não encontrado ou não é uma lista")
-		return false
-	} else {
-		fmt.Println("schemas:", schemas)
 	}
 
 	host, ok := dataInput["host"]
@@ -118,12 +109,12 @@ func valideDataM(input map[string]interface{}, con model.DbDtoRequest) bool {
 		fmt.Println("database:", database)
 	}
 
-	sourceType, ok := dataInput["sourceType"]
+	replicationMethod, ok := dataInput["replicationMethod"]
 	if !ok {
-		fmt.Println("sourceType não encontrado ou não é uma string")
+		fmt.Println("replicationMethod não encontrado ou não é uma string")
 		return false
 	} else {
-		fmt.Println("sourceType:", sourceType)
+		fmt.Println("replicationMethod:", replicationMethod)
 	}
 
 	return true

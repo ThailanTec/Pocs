@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "85f79b76-9cef-451f-b9da-9c8c71dcf986",
-		"name": "Airbyte Copy",
+		"name": "Airbyte_Call",
 		"description": "clone the [airbyte repo](https://github.com/airbytehq/airbyte), spin it up and setup a workspace on `localhost:8000`\n\nin this collection you can find the needed endpoints to integrate a CSV file into a target database (postgres)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "13569082"

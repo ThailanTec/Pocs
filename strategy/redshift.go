@@ -7,11 +7,11 @@ import (
 	"github.com/ThailanTec/factoriesStrategy/model"
 )
 
-type CreateSQLServer struct{}
+type CreatRedShift struct{}
 
-func (sql *CreateSQLServer) Create(dto model.DbDtoRequest) {
+func (sql *CreatRedShift) Create(dto model.DbDtoRequest) {
 
-	const SourceDefinitionId = "b5ea17b1-f170-46dc-bc31-cc744ca984c1"
+	const SourceDefinitionId = "e87ffa8e-a3b5-f69c-9076-6011339de1f6"
 
 	dataF := dto.ConnectionConfiguration
 	dMashal, err := json.Marshal(dataF)
@@ -28,7 +28,7 @@ func (sql *CreateSQLServer) Create(dto model.DbDtoRequest) {
 	}
 
 	// Validação
-	valida := valideData(dataInput, dto)
+	valida := valideDataR(dataInput, dto)
 	if valida {
 		fmt.Printf("Create database type: ")
 		fmt.Printf(dto.Format)
@@ -44,7 +44,7 @@ func (sql *CreateSQLServer) Create(dto model.DbDtoRequest) {
 
 }
 
-func valideData(input map[string]interface{}, con model.DbDtoRequest) bool {
+func valideDataR(input map[string]interface{}, con model.DbDtoRequest) bool {
 
 	conn := con.ConnectionConfiguration
 
@@ -67,14 +67,6 @@ func valideData(input map[string]interface{}, con model.DbDtoRequest) bool {
 		return false
 	} else {
 		fmt.Println("port:", port)
-	}
-
-	sslmode, ok := dataInput["sslMode"]
-	if !ok {
-		fmt.Println("sslMode não encontrado ou não é uma string")
-		return false
-	} else {
-		fmt.Println("ssl:", sslmode)
 	}
 
 	schemas, ok := dataInput["schemas"]
@@ -115,14 +107,6 @@ func valideData(input map[string]interface{}, con model.DbDtoRequest) bool {
 		return false
 	} else {
 		fmt.Println("database:", database)
-	}
-
-	replicationMethod, ok := dataInput["replicationMethod"]
-	if !ok {
-		fmt.Println("replicationMethod não encontrado ou não é uma string")
-		return false
-	} else {
-		fmt.Println("replicationMethod:", replicationMethod)
 	}
 
 	sourceType, ok := dataInput["sourceType"]
