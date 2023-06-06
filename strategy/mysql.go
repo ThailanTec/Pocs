@@ -9,7 +9,7 @@ import (
 
 type CreateMysql struct{}
 
-func (ps *CreateMysql) Create(dto model.DbDtoRequest) {
+func (sql *CreateMysql) Create(dto model.DbDtoRequest) {
 
 	const SourceDefinitionId = "435bb9a5-7887-4809-aa58-28c27df0d7ad"
 
@@ -109,12 +109,12 @@ func valideDataMY(input map[string]interface{}, con model.DbDtoRequest) bool {
 		fmt.Println("database:", database)
 	}
 
-	replicationMethod, ok := dataInput["replicationMethod"]
+	sourceType, ok := dataInput["sourceType"]
 	if !ok {
-		fmt.Println("replicationMethod não encontrado ou não é uma string")
+		fmt.Println("sourceType não encontrado ou não é uma string")
 		return false
 	} else {
-		fmt.Println("replicationMethod:", replicationMethod)
+		fmt.Println("sourceType:", sourceType)
 	}
 
 	return true

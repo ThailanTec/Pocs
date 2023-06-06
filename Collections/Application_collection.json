@@ -264,13 +264,13 @@
 					"body": "{\n    \"workspaceId\": \"c2e9e9ae-1289-4016-8220-a6ddc3f8d225\",\n    \"connectionConfiguration\": {\n        \"database\": \"mySampleDatabase\",\n        \"dataset_name\": \"\",\n        \"host\": \"enge-sql-server.database.windows.net\",\n        \"password\": \"Pwd@1234\",\n        \"port\": 1433,\n        \"schemas\": [\n            \"dto\"\n        ],\n        \"sourceType\": \"mssql\",\n        \"username\": \"azureuser\"\n    },\n    \"name\": \"redshift test\",\n    \"sourceName\": \"redshift\",\n    \"format\": \"redshift\"\n}"
 				},
 				{
-					"name": "CreateMysql",
+					"name": "CreateMYSQL",
 					"originalRequest": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"workspaceId\": \"c2e9e9ae-1289-4016-8220-a6ddc3f8d225\",\n    \"connectionConfiguration\": {\n        \"dataset_name\": \"\",\n        \"host\": \"enge-sql-server.database.windows.net\",\n        \"schemas\": [\n            \"dto\"\n        ],\n        \"sourceType\": \"mysql\",\n        \"port\": 1433,\n        \"database\": \"mySampleDatabase\",\n        \"username\": \"azureuser\",\n        \"sslMode\": \"disable\",\n        \"password\": \"Pwd@1234\",\n        \"replicationMethod\": \"true\"\n    },\n    \"name\": \"MYSql\",\n    \"sourceName\": \"MYSql\",\n    \"icon\": \"icon\",\n    \"format\": \"mysql\"\n}",
+							"raw": "{\n   \"workspaceId\": \"c2e9e9ae-1289-4016-8220-a6ddc3f8d225\",\n    \"connectionConfiguration\": {\n        \"dataset_name\": \"\",\n        \"host\": \"enge-sql-server.database.windows.net\",\n        \"port\": 1433,\n        \"database\": \"mySampleDatabase\",\n        \"username\": \"azureuser\",\n        \"sslMode\": \"disable\",\n        \"password\": \"Pwd@1234\",\n        \"sourceType\": \"mysql\",\n        \"replication_method\": {\n            \"method\": \"STANDARD\"\n        }\n    },\n    \"replication_method\": {\n        \"method\": \"standard\"\n    },\n    \"name\": \"ThailanMYSQNOVO\",\n    \"sourceName\": \"ThailanMYSQL\",\n    \"icon\": \"icon\",\n    \"format\": \"mysql\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -299,15 +299,15 @@
 						},
 						{
 							"key": "Date",
-							"value": "Mon, 05 Jun 2023 19:38:37 GMT"
+							"value": "Tue, 06 Jun 2023 17:56:17 GMT"
 						},
 						{
 							"key": "Content-Length",
-							"value": "372"
+							"value": "387"
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"workspaceId\": \"c2e9e9ae-1289-4016-8220-a6ddc3f8d225\",\n    \"connectionConfiguration\": {\n        \"database\": \"mySampleDatabase\",\n        \"dataset_name\": \"\",\n        \"host\": \"enge-sql-server.database.windows.net\",\n        \"password\": \"Pwd@1234\",\n        \"port\": 1433,\n        \"replicationMethod\": \"true\",\n        \"schemas\": [\n            \"dto\"\n        ],\n        \"sourceType\": \"mysql\",\n        \"sslMode\": \"disable\",\n        \"username\": \"azureuser\"\n    },\n    \"name\": \"MYSql\",\n    \"sourceName\": \"MYSql\",\n    \"format\": \"mysql\"\n}"
+					"body": "{\n    \"workspaceId\": \"c2e9e9ae-1289-4016-8220-a6ddc3f8d225\",\n    \"connectionConfiguration\": {\n        \"database\": \"mySampleDatabase\",\n        \"dataset_name\": \"\",\n        \"host\": \"enge-sql-server.database.windows.net\",\n        \"password\": \"Pwd@1234\",\n        \"port\": 1433,\n        \"replication_method\": {\n            \"method\": \"STANDARD\"\n        },\n        \"sourceType\": \"mysql\",\n        \"sslMode\": \"disable\",\n        \"username\": \"azureuser\"\n    },\n    \"name\": \"ThailanMYSQNOVO\",\n    \"sourceName\": \"ThailanMYSQL\",\n    \"format\": \"mysql\"\n}"
 				}
 			]
 		}
