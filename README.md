@@ -115,3 +115,10 @@ main > router [Linha 13] Alterar a primeira opção dentro das strings
 ```
 
 Na aplicação contem const onde a mesma tem o objetivo de setar o padrão do SourceDefinitionID. 
+
+
+## Rota de GET
+
+*/pocs/getdb*
+
+A rota disponibiliza um exemplo de como vai ser cada body para criação de um modelo de banco de dados. 
