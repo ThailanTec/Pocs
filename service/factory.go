@@ -20,6 +20,8 @@ func NewDataBaseProviderF(format string) model.DBProvider {
 		return &strategy.CreateBigQuery{}
 	case "redshift":
 		return &strategy.CreatRedShift{}
+	case "mongodb":
+		return &strategy.CreateMongoDB{}
 	default:
 		return nil
 	}

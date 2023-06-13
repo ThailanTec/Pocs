@@ -45,7 +45,7 @@ func NewHttpRequest(inputB model.DtoAirbyteCreateDB) error {
 	}
 
 	if resp.StatusCode != http.StatusCreated {
-		fmt.Sprintf("failed to create SQL Server source. Status code: %d", resp.StatusCode)
+		fmt.Printf("failed to create SQL Server source. Status code: %d", resp.StatusCode)
 	}
 
 	return nil

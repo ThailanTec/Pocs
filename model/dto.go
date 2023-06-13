@@ -29,3 +29,16 @@ func DtoMapp(dto DbDtoRequest, SourceDefinitionID string) *DtoAirbyteCreateDB {
 	}
 
 }
+
+type DBStruct struct {
+	Content Content `json:"content"`
+}
+type Body struct {
+	UID       string `json:"_uid"`
+	Component string `json:"component"`
+	Headline  string `json:"headline,omitempty"`
+	Title     string `json:"title,omitempty"`
+}
+type Content struct {
+	Body []Body `json:"body"`
+}
